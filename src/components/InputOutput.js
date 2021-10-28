@@ -1,6 +1,19 @@
 import { useState } from "react";
 const InputOutput = () => {
-  const [inputs, setInputs] = useState("");
+  //   const [inputs, setInputs] = useState("");
+  const [outputs, setOutput] = useState("");
+
+  const handleInputChange = (e) => {
+    const unClean = e.target.value;
+    let data = "";
+    if (unClean) {
+      data = unClean
+        .split(",")
+        .map((output) => output * 2)
+        .join(",");
+    }
+    setOutput(data);
+  };
 
   return (
     <div className="container content">
@@ -12,9 +25,8 @@ const InputOutput = () => {
           <input
             type="text"
             placeholder="Enter Input sample 1,2,3,4"
-            value={inputs}
             onChange={(e) => {
-              setInputs(e.target.value);
+              handleInputChange(e);
             }}
           />
         </div>
@@ -28,14 +40,7 @@ const InputOutput = () => {
             type="text"
             placeholder="Result will appear here"
             readOnly
-            value={
-              inputs === ""
-                ? ""
-                : inputs
-                    .split(",")
-                    .map((input) => input * 2)
-                    .join(",")
-            }
+            value={outputs}
           />
         </div>
       </div>
