@@ -4,7 +4,7 @@ const InputOutput = () => {
 
   return (
     <div className="container content">
-      <div className="content content-content">
+      <div className="content content-child">
         <div className="form-control">
           <h1>Input</h1>
           <br />
@@ -19,7 +19,7 @@ const InputOutput = () => {
           />
         </div>
       </div>
-      <div className="content content-content">
+      <div className="content content-child">
         <div className="form-control">
           <h1>Output</h1>
           <br />
